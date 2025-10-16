@@ -224,13 +224,15 @@
             const colResena = document.getElementById('col-resena');
             const colReporte = document.getElementById('col-reporte');
             const navButtons = document.querySelectorAll('.nav-btn');
-            const welcomeScreen = document.getElementById('welcome-screen'); // Nuevo elemento
+            const welcomeScreen = document.getElementById('welcome-screen');
+            const videoContainer = document.getElementById('video-container')
             
             function updateView() {
                 navButtons.forEach(btn => btn.classList.remove('active'));
                 
                 // Ocultar la pantalla de bienvenida y mostrar el contenido principal al interactuar
-                welcomeScreen.classList.add('hidden'); 
+                welcomeScreen.classList.add('hidden');
+                videoContainer.classList.add('hidden');
                 mainContent.classList.remove('hidden');
 
                 if (state.currentView === 'resena') {
@@ -251,6 +253,7 @@
             function setupInitialView() {
                 // Estado inicial: Mostrar la bienvenida y ocultar el contenido principal
                 welcomeScreen.classList.remove('hidden');
+                videoContainer.classList.remove('hidden');
                 mainContent.classList.add('hidden');
                 navButtons.forEach(btn => btn.classList.remove('active'));
             }
@@ -286,7 +289,6 @@
                     card.classList.toggle('flipped');
                 });
             });
-
             // Llamar a la función de configuración inicial al cargar la página
             setupInitialView();
         });
